@@ -1099,19 +1099,24 @@ class Intro extends MovieClip {
 	Cloud_1 cloud2;
 	Cloud_1 cloud1;
 	Sky instance_1;
+	Sound _clickSound = resources.getSound("Click");
 
 	Intro([String mode, int startPosition, bool loop])
 			: super(mode, startPosition, loop, {}) {
 		// timeline functions:
 		void frame_39() {
 			stop();
-			btnPlay.onMouseDown.listen((e) { play(); });
-		  btnPlay.onKeyDown.where((e) => e.which == VK_ENTER).listen((e) { play(); });
+			btnPlay.onMouseDown.listen(_selectPlay);
+		  btnPlay.onKeyDown.where((e) => e.which == VK_ENTER).listen(_selectPlay);
 		}
 		void frame_52() {
 			// this is Dart code!
 			stop();
 			dispatchEvent(new Event("startGame", true));
+		}
+		
+		void toto(Event e){
+		  play();  
 		}
 
 		// actions tween:
@@ -1172,6 +1177,12 @@ class Intro extends MovieClip {
 		timeline.addTween(_tween({}).to({"state":[{"t":instance_1}]}).wait(53));
 
 	}
+  
+  void _selectPlay(Event event) {
+    _clickSound.play();
+    play();
+  }
+	
 }
 
 class EnergyDrink extends MovieClip {

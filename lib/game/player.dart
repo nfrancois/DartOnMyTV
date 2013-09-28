@@ -49,7 +49,7 @@ class Player extends DisplayObjectContainer
   jump() {
     if (_jumping) return;
     if (_falling && (_lastFloor - y).abs() > 10.0) return;
-    jumpSound.play();
+    _jumpSound.play();
     _jumping = true;
     _falling = false;
     _vy = -10.0;
