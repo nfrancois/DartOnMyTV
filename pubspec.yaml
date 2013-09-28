@@ -1,0 +1,6 @@
+name: Runner
+description: Dart StageXL export from Runner
+dependencies:
+  browser: any
+  meta: any
+  stagexl: 0.8.5 

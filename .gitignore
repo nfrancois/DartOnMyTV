@@ -1,0 +1,7 @@
+.project
+.settings/
+packages
+deploy/
+WebContent/
+pubspec.lock
+*.js*
