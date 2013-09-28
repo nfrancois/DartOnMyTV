@@ -20,7 +20,7 @@ ResourceManager initResources([String basePath = ""]) {
   ..addBitmapData("Sky", "${basePath}images/sky.jpg")
   ..addSound("Click", "${basePath}sound/click.wav")
   ..addSound("Jump", "${basePath}sound/jump.wav")
-  ..addSound("Fall", "${basePath}sound/fall.wav");
+  ..addSound("Arg", "${basePath}sound/arg.wav");
   return resources;
 }
 
@@ -159,13 +159,9 @@ class Star extends Bitmap {
   }
 }
 
-class Jump extends Sound {
-  static Sound snd;
-  Jump(){
-    
-    snd = resources.getSound("jump");
-  }
-}
+Sound get jumpSound => resources.getSound("Jump");
+Sound get clickSound => resources.getSound("Click");
+Sound get argSound => resources.getSound("Arg");
 
 class Popup extends Sprite {
 	TextField txtTitle;
@@ -1099,7 +1095,7 @@ class Intro extends MovieClip {
 	Cloud_1 cloud2;
 	Cloud_1 cloud1;
 	Sky instance_1;
-	Sound _clickSound = resources.getSound("Click");
+	Sound _clickSound = clickSound;
 
 	Intro([String mode, int startPosition, bool loop])
 			: super(mode, startPosition, loop, {}) {

@@ -6,7 +6,7 @@ part of Runner;
 class Player extends DisplayObjectContainer
 {
   bool isDead = false;
-  bool hasFallen = false;
+  bool _hasFallen = false;
   
   double _floor = 0.0;
   double _lastFloor = 0.0;
@@ -14,7 +14,8 @@ class Player extends DisplayObjectContainer
   bool _falling = false;
   double _vy = 0.0;
   lib.Player _anim;
-  Sound _jumpSound  = lib.resources.getSound("Jump");
+  Sound _jumpSound = lib.jumpSound;
+  Sound _argSound = lib.argSound;
   //TextField _debug;
   
   get floor => _floor;
@@ -49,11 +50,11 @@ class Player extends DisplayObjectContainer
   jump() {
     if (_jumping) return;
     if (_falling && (_lastFloor - y).abs() > 10.0) return;
-    _jumpSound.play();
     _jumping = true;
     _falling = false;
     _vy = -10.0;
     _setState("jump");
+    _jumpSound.play();
   }
   
   die() {
@@ -66,10 +67,19 @@ class Player extends DisplayObjectContainer
   
   reset() {
     isDead = false;
-    hasFallen = false;
+    _hasFallen = false;
     _jumping = _falling = false;
     _vy = 0.0;
     _setState("sit");
+  }
+  
+  bool get hasFallen => _hasFallen;
+  
+  void set hasFallen(bool value){
+    _hasFallen = value;
+    if(_hasFallen){
+      _argSound.play();
+    }
   }
   
   advance(double dist, double frames) {

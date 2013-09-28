@@ -1,4 +1,4 @@
-name: Runner
+name: Runner on Smart TV
 description: Dart StageXL export from Runner
 dependencies:
   browser: any

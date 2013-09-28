@@ -10,7 +10,7 @@ class ScorePopup extends lib.Popup
   ScorePopup() {
     visible = false;
     
-    html.document.onKeyDown.where((e) => e.which == VK_ENTER).listen(_enter);
+    onMouseDown.listen(_enter);
   }
   
   _enter(e) {
