@@ -18,9 +18,10 @@ ResourceManager initResources([String basePath = ""]) {
   ..addBitmapData("Platform2_img1x", "${basePath}images/Platform2_img@1x.png")
   ..addBitmapData("Platform3_img1x", "${basePath}images/Platform3_img@1x.png")
   ..addBitmapData("Sky", "${basePath}images/sky.jpg")
-  ..addSound("Click", "${basePath}sound/click.wav")
-  ..addSound("Jump", "${basePath}sound/jump.wav")
-  ..addSound("Arg", "${basePath}sound/arg.wav");
+//  ..addSound("Click", "${basePath}sound/click.mp3")
+//  ..addSound("Jump", "${basePath}sound/jump.mp3")
+//  ..addSound("Arg", "${basePath}sound/arg.mp3")
+  ;
   return resources;
 }
 
@@ -159,9 +160,9 @@ class Star extends Bitmap {
   }
 }
 
-Sound get jumpSound => resources.getSound("Jump");
-Sound get clickSound => resources.getSound("Click");
-Sound get argSound => resources.getSound("Arg");
+//Sound get jumpSound => resources.getSound("Jump");
+//Sound get clickSound => resources.getSound("Click");
+//Sound get argSound => resources.getSound("Arg");
 
 class Popup extends Sprite {
 	TextField txtTitle;
@@ -1095,7 +1096,7 @@ class Intro extends MovieClip {
 	Cloud_1 cloud2;
 	Cloud_1 cloud1;
 	Sky instance_1;
-	Sound _clickSound = clickSound;
+	//Sound _clickSound = clickSound;
 
 	Intro([String mode, int startPosition, bool loop])
 			: super(mode, startPosition, loop, {}) {
@@ -1175,7 +1176,7 @@ class Intro extends MovieClip {
 	}
   
   void _selectPlay(Event event) {
-    _clickSound.play();
+    //_clickSound.play();
     play();
   }
 	

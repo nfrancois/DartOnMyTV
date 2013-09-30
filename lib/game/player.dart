@@ -14,8 +14,8 @@ class Player extends DisplayObjectContainer
   bool _falling = false;
   double _vy = 0.0;
   lib.Player _anim;
-  Sound _jumpSound = lib.jumpSound;
-  Sound _argSound = lib.argSound;
+  //Sound _jumpSound = lib.jumpSound;
+  //Sound _argSound = lib.argSound;
   //TextField _debug;
   
   get floor => _floor;
@@ -54,7 +54,7 @@ class Player extends DisplayObjectContainer
     _falling = false;
     _vy = -10.0;
     _setState("jump");
-    _jumpSound.play();
+    //_jumpSound.play();
   }
   
   die() {
@@ -78,7 +78,7 @@ class Player extends DisplayObjectContainer
   void set hasFallen(bool value){
     _hasFallen = value;
     if(_hasFallen){
-      _argSound.play();
+      //_argSound.play();
     }
   }
   
